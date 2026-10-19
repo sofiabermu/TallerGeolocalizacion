@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polígono con geolocalización</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Mi polígono</h1>
+
+    <!-- Acciones del taller base -->
+    <div class="controles">
+      <button id="btnUbicar">Mi ubicación</button>
+      <button id="btnCerrar" disabled>Cerrar polígono</button>
+      <button id="btnDeshacer" disabled>Deshacer punto</button>
+      <button id="btnLimpiar">Limpiar</button>
+      <button id="btnExportar" disabled>Exportar GeoJSON</button>
+    </div>
+
+    <!-- Controles de los retos -->
+    <div class="controles extras">
+      <label class="campo">
+        Nombre
+        <input type="text" id="campoNombre" placeholder="Ej: Cancha UAM" maxlength="60">
+      </label>
+      <label class="campo">
+        Color
+        <input type="color" id="campoColor" value="#27ae60">
+      </label>
+      <button id="btnMiPosicion">Agregar mi posición</button>
+      <button id="btnDentro" disabled>¿Estoy dentro?</button>
+      <button id="btnGeocerca" disabled>Vigilar geocerca</button>
+      <label class="boton-archivo">
+        Importar GeoJSON
+        <input type="file" id="campoArchivo" accept=".geojson,.json,application/geo+json,application/json">
+      </label>
+    </div>
+
+    <p id="info">Haz clic en el mapa para agregar vértices.</p>
+  </header>
+
+  <main class="zona">
+    <div id="mapa"></div>
+
+    <aside class="panel">
+      <h2>Vértices</h2>
+      <table class="tabla-vertices">
+        <thead>
+          <tr><th>#</th><th>Latitud</th><th>Longitud</th></tr>
+        </thead>
+        <tbody id="cuerpoTabla"></tbody>
+      </table>
+      <p id="sinVertices" class="vacio">Aún no hay vértices.</p>
+    </aside>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

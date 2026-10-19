@@ -1,0 +1,36 @@
+body { margin: 0; font-family: system-ui, sans-serif; display: flex; flex-direction: column; height: 100vh; }
+header { padding: 10px 16px; background: #1e3a5f; color: white; }
+h1 { margin: 0 0 8px; font-size: 1.3rem; }
+.controles { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.controles.extras { margin-top: 8px; }
+button { padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.activo { background: #e74c3c; color: white; }
+#info { margin: 8px 0 0; font-size: .9rem; }
+#info.alerta { color: #ffd2cc; font-weight: 600; }
+
+/* Campos de nombre y color */
+.campo { display: flex; align-items: center; gap: 6px; font-size: .9rem; }
+.campo input[type="text"] { padding: 5px 8px; border: none; border-radius: 4px; width: 150px; }
+.campo input[type="color"] { width: 36px; height: 28px; padding: 0; border: none; background: none; cursor: pointer; }
+
+/* El input de archivo se oculta y se usa la etiqueta como botón */
+.boton-archivo { padding: 6px 12px; border-radius: 4px; background: #efefef; color: #111; cursor: pointer; font-size: 13.33px; }
+.boton-archivo input { display: none; }
+
+/* Mapa + panel lateral */
+.zona { flex: 1; display: flex; min-height: 0; }
+#mapa { flex: 1; }
+.panel { width: 280px; overflow-y: auto; padding: 10px 12px; border-left: 1px solid #ddd; background: #fafafa; }
+.panel h2 { margin: 0 0 8px; font-size: 1rem; }
+.tabla-vertices { width: 100%; border-collapse: collapse; font-size: .8rem; font-variant-numeric: tabular-nums; }
+.tabla-vertices th, .tabla-vertices td { padding: 4px 6px; border-bottom: 1px solid #e3e3e3; text-align: right; }
+.tabla-vertices th:first-child, .tabla-vertices td:first-child { text-align: center; }
+.vacio { color: #777; font-size: .85rem; }
+
+/* En celular el panel va debajo del mapa */
+@media (max-width: 700px) {
+  .zona { flex-direction: column; }
+  #mapa { min-height: 55vh; }
+  .panel { width: auto; border-left: none; border-top: 1px solid #ddd; max-height: 30vh; }
+}
